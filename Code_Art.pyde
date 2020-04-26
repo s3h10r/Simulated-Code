@@ -74,7 +74,10 @@ def setup():
             line_segments = int(random(min_segments, max_segments))
             for j in range(line_segments):
                 if (random(1) < change_chance):
-                    set_palette_color()
+                    if random_colors:
+                        set_random_color()
+                    else:
+                        set_palette_color()
                 segment_length = random(min_segment_length, max_segment_length)
                 
                 line(line_x, line_y, line_x + segment_length, line_y)
